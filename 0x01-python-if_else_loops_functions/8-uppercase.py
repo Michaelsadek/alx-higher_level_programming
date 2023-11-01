@@ -2,7 +2,7 @@
 def islower(c):
 def uppercase(str):
     for i in str:
-        if ord("a") <= ord(i) <= ord("z"):
+        if ord("a") <= ord(i) <= ord("Z"):
             i = chr(ord(i) - 32)
         print("{:s}".format(i), end="")
-    print()
+    print("")
