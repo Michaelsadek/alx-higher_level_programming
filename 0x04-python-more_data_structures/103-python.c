@@ -1,6 +1,11 @@
+#include <python.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <Python.h>
+#include <object.h>
+#include <listobject.h>
+#include <bytesobject.h>
+
+
 
 
 void print_python_list(PyObject *p);
@@ -32,10 +37,12 @@ void print_python_list(PyObject *p)
 		print_python_byte(list->ob_item[i]);
 	}
 }
+
 /**
  * print_python_bytes - prints basic info about Python byte objects.
  * @p: A Python byte object.
  */
+
 void print_python_bytes(PyObject *p)
 {
 	unsigned char i, size;
