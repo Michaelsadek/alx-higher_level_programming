@@ -1,10 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include <object.h>
-#include <listobject.h>
-#include <bytesobject.h>
-
-
+#include <Python.h>
 
 
 void print_python_list(PyObject *p);
