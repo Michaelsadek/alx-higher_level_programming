@@ -7,8 +7,8 @@ void print_python_list(PyObject *p);
 void print_python_bytes(PyObject *p);
 
 /**
- * print_python_list - prints basic info about Python lists.
- * @p: A Python list object.
+ * print_python_list - Prints basic info about Python lists.
+ * @p: A PyObject list object.
  */
 void print_python_list(PyObject *p)
 {
@@ -34,8 +34,8 @@ void print_python_list(PyObject *p)
 }
 
 /**
- * print_python_bytes - prints basic info about Python byte objects.
- * @p: A Python byte object.
+ * print_python_bytes - Prints basic info about Python byte objects.
+ * @p: A PyObject byte object.
  */
 
 void print_python_bytes(PyObject *p)
