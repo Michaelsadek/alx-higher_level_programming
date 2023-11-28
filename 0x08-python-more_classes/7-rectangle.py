@@ -31,7 +31,7 @@ class Rectangle:
             ValueError: If width is less than 0.
         '''
         return self._width
-    
+
     @width.setter
     def width(self, value):
         if not isinstance(value, int):
@@ -39,7 +39,7 @@ class Rectangle:
         if value < 0:
             raise ValueError("width must be >= 0")
         self._width = value
-        
+
     @property
     def height(self):
         '''Property for the height of the rectangle.
@@ -49,7 +49,7 @@ class Rectangle:
             ValueError: If height is less than 0.
         '''
         return self._height
-    
+
     @height.setter
     def height(self, value)
         """setter for the private instance attrubute height"""
