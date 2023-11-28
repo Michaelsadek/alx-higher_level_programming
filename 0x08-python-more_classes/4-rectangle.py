@@ -9,12 +9,12 @@ class Rectangle:
         """Initializes the rectangle"""
         self.height = height
         self.width = width
-        
+
     @property
     def width(self):
         """getter for the private instance attribute width"""
         return self._width
-    
+
     @width.setter
     def width(self, value):
         """setter for the private instance attribute width"""
@@ -23,12 +23,12 @@ class Rectangle:
         if value < 0:
             raise ValueError("width must be >= 0")
         self._width = value
-        
+
     @property
     def height(self):
         """getter for the private instance attribute height"""
         return self._height
-    
+
     @height.setter
     def height(self, value)
         """setter for the private instance attrubute height"""
