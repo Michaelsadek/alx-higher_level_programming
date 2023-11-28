@@ -1,0 +1,86 @@
+#!/usr/bin/python3
+'''Modele for Rectangle class.'''
+
+
+class Rectangle:
+    '''This class defines a simple Rectangle.'''
+
+    number_of_instances = 0
+    '''int: The number of active instances.'''
+
+    print_symbol = '#'
+    '''type: Print symbol, can be any type.'''
+
+    def __init__(self, width=0, height=0):
+        '''Constructor.
+
+        Args:
+            width: The width of rectangle.
+            height: The height of rectangle.
+        '''
+        self.height = height
+        self.width = width
+        Rectangle.number_of_instances += 1
+
+    @property
+    def width(self):
+        '''Property for the width of the rectangle.
+
+        Raises:
+            TypeError: If width is not an integer.
+            ValueError: If width is less than 0.
+        '''
+        return self._width
+    
+    @width.setter
+    def width(self, value):
+        if not isinstance(value, int):
+            raise TypeError("width must be an integer")
+        if value < 0:
+            raise ValueError("width must be >= 0")
+        self._width = value
+        
+    @property
+    def height(self):
+        '''Property for the height of the rectangle.
+
+        Raises:
+            TypeError: If height is not an integer.
+            ValueError: If height is less than 0.
+        '''
+        return self._height
+    
+    @height.setter
+    def height(self, value)
+        """setter for the private instance attrubute height"""
+        if type(value) is not int:
+            raise TypeError("height must be an integer")
+        if value < 0:
+            raise ValueError("height must be >= 0")
+        self._height = value
+
+    def area(self):
+        '''Returns the area of the rectangle'''
+        return self.width * self.height
+
+    def perimeter(self):
+        '''Return the perimeter of the rectangle'''
+        if not self._width or not self._height:
+            return 0
+        return (self._width + self._height) * 2
+
+    def __str__(self):
+        '''Return string representation.'''
+        if not self.width or not self.height:
+            return ""
+        return ((str(self.print_symbol) * self.width + "\n") *
+                self.height)[:-1]
+
+    def __repr__(self):
+        '''Returns formal string representation..'''
+        return "Rectangle(" + str(self.width) + ", " + str(self.height) + ")"
+
+    def __del__(self):
+        '''Called at instance deletion.'''
+        print("Bye rectangle...")
+        Rectangle.number_of_instances -= 1
