@@ -3,7 +3,7 @@
 
 class Student:
     '''student class'''
-  def __init__(self, first_name, last_name, age):
+    def __init__(self, first_name, last_name, age):
         '''Initialization of the student object'''
         self.first_name = first_name
         self.last_name = last_name
@@ -28,9 +28,9 @@ class Student:
         return my_dict
 
     def reload_from_json(self, json):
-        '''this function replaces all attributes of the student instance
-        with the once in the json argument
+        '''this function replaces all attributes of the Student instance
+        with the ones in the json argument
         '''
-        for key, value in json.item():
+        for key, value in json.items():
             if key in self.__dict__:
                 self.__dict__[key] = value

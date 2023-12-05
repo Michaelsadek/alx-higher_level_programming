@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-"""contains the clas "student"""
+"""contains the clas "Student"""
 
-class student:
+class Student:
     """Representation of a student"""
     def __int__(self, first_name, last_name, age):
         """Initializes the student"""

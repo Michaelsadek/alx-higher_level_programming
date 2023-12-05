@@ -27,7 +27,7 @@ def printer():
 try:
     for line in stdin:
         splittrd_line = line.split()
-        if len(splitted_line > = 2:
+        if len(splitted_line) >= 2:
             status = splitted_line[-2]
             total_size += int(splitted_line[-1])
             if status in status_codes:
@@ -38,4 +38,4 @@ try:
             printer()
         printer()
 except KeyboardInterrupt as e:
-printer()
+    printer()
