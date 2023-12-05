@@ -7,7 +7,7 @@ class Student:
         '''Initialization of the student object'''
         self.first_name = first_name
         self.last_name = last_name
-        self.age = age  
+        self.age = age
 
     def to_json(self, attrs=None):
         '''return a dictionary representation of a student instance
@@ -25,8 +25,8 @@ class Student:
         for key, value in self.__dict__.item():
             if key in attrs:
                 my_dict[key] = value
-        return my_dict  
-    
+        return my_dict
+
     def reload_from_json(self, json):
         '''this function replaces all attributes of the student instance
         with the once in the json argument
