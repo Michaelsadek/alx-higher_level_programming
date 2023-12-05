@@ -32,7 +32,6 @@ try:
             total_size += int(splitted_line[-1])
             if status in status_codes:
                 status_codes[status] += 1
-
         i += 1
 
         if i % 10 == 0:
