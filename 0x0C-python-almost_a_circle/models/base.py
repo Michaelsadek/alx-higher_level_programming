@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 '''Module for Base class.'''
+from json import dumps, loads
+import csv
 
 
 class Base:
@@ -8,7 +10,7 @@ class Base:
     __nb_objects = 0
 
     def __init__(self, id=None):
-        '''constructor.'''
+        '''Constructor.'''
         if id is not None:
             self.id = id
         else:
@@ -30,10 +32,9 @@ class Base:
             return []
         return loads(json_string)
 
-
     @classmethod
     def save_to_file(cls, list_objs):
-        '''Save Jsonified object to file.'''
+        '''Saves jsonified object to file.'''
         if list_objs is not None:
             list_objs = [o.to_dictionary() for o in list_objs]
         with open("{}.json".format(cls.__name__), "w", encoding="utf-8") as f:
@@ -65,19 +66,19 @@ class Base:
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
-        '''Save object to scv file.'''
+        '''Saves object to csv file.'''
         from models.rectangle import Rectangle
         from models.square import Square
         if list_objs is not None:
             if cls is Rectangle:
-                list_obhs = [[o.id, o.width, o.height, o.x, o.y]
-                        for o in list_objs]
+                list_objs = [[o.id, o.width, o.height, o.x, o.y]
+                             for o in list_objs]
             else:
                 list_objs = [[o.id, o.size, o.x, o.y]
-                        for o in list_objs]
-        with open('{}.scv'.format(cls.__name__), 'w', mewline='',
-                encoding='utf-8') as f:
-            writer = scv.writer(f)
+                             for o in list_objs]
+        with open('{}.csv'.format(cls.__name__), 'w', newline='',
+                  encoding='utf-8') as f:
+            writer = csv.writer(f)
             writer.writerows(list_objs)
 
     @classmethod
@@ -104,9 +105,9 @@ class Base:
     def draw(list_rectangles, list_squares):
         import turtle
         import time
-        from random import rendrange
-        turtle.Scteen().colormode(255)
-        for i in list_rectangle + list_squares:
+        from random import randrange
+        turtle.Screen().colormode(255)
+        for i in list_rectangles + list_squares:
             t = turtle.Turtle()
             t.color((randrange(255), randrange(255), randrange(255)))
             t.pensize(1)
