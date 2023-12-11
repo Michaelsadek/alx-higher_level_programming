@@ -2,6 +2,7 @@
 '''Module for Rectangle class.'''
 from models.base import Base
 
+
 class Rectangle(Base):
     '''A Rectangle class.'''
 
@@ -14,7 +15,7 @@ class Rectangle(Base):
         self.y = y
 
     @property
-    def width)self):
+    def width(self):
         '''Width of this rectangle.'''
         return self.__width
 
@@ -54,30 +55,31 @@ class Rectangle(Base):
         self.__y = value
 
     def validate_integer(self, name, value, eq=True):
-        '''Method for validate the value.'''
-        if type(value) != in:
+        '''Method for validating the value.'''
+        if type(value) != int:
             raise TypeError("{} must be an integer".format(name))
         if eq and value < 0:
             raise ValueError("{} must be >= 0".format(name))
         elif not eq and value <= 0:
-            raise ValueError("{} must be > 0".format (name))
+            raise ValueError("{} must be > 0".format(name))
 
     def area(self):
         '''Computes area of this rectangle.'''
         return self.width * self.height
 
     def display(self):
-        ''' Prints string repesentation of this rectangle.'''
+        '''Prints string representation of this rectangle.'''
         s = '\n' * self.y + \
-                (' ' * self.x + '#' * self.width + '\n') * self.height
+            (' ' * self.x + '#' * self.width + '\n') * self.height
         print(s, end='')
 
     def __str__(self):
-        '''Return string info about this rectangle.'''
+        '''Returns string info about this rectangle.'''
         return '[{}] ({}) {}/{} - {}/{}'.\
-                format(type(self).__name__, self.id, self.x, self.y, self.width, self.heiht)
+            format(type(self).__name__, self.id, self.x, self.y, self.width,
+                   self.height)
 
-    def __update(self, id=None, width=None, heith=None, x=None, y=None):
+    def __update(self, id=None, width=None, height=None, x=None, y=None):
         '''Internal method that updates instance attributes via */**args.'''
         if id is not None:
             self.id = id
@@ -90,15 +92,15 @@ class Rectangle(Base):
         if y is not None:
             self.y = y
 
-        def update(self, *args, **kwargs):
-            '''Updates instance attributes via no-keyword & keyword args.'''
-            # print(args, kwargs)
-            if args:
-                self.__update(*args)
-            elif kwargs:
-                self.__update(**kwargs)
+    def update(self, *args, **kwargs):
+        '''Updates instance attributes via no-keyword & keyword args.'''
+        # print(args, kwargs)
+        if args:
+            self.__update(*args)
+        elif kwargs:
+            self.__update(**kwargs)
 
-        def to_dictionary(self):
+    def to_dictionary(self):
         '''Returns dictionary representation of this class.'''
         return {"id": self.id, "width": self.__width, "height": self.__height,
                 "x": self.__x, "y": self.__y}
